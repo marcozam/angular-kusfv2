@@ -355,7 +355,7 @@ export namespace StudentsDataService {
     'Cade Fischer',
   ];
 
-  const therapies = [
+  export const therapies = [
     'speech',
     'occupational',
     'behavioral',

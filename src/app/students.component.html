@@ -1,1 +1,12 @@
-<div>Put code to display 1+ students here</div>
+<app-student-form *ngIf="formVisible; else list" 
+    [student]="currentStudent"
+    [therapies]="therapies" 
+    [action]="action" 
+    (canceled)="formVisible = false"
+    (saved)="onSave($event)"></app-student-form>
+<ng-template #list>
+    <app-students-list 
+        [students]="students" 
+        [therapies]="therapies" 
+        (change)="onChange($event)"></app-students-list>
+</ng-template>

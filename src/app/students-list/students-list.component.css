@@ -1,0 +1,35 @@
+.dataview {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+}
+
+.header-paging {
+    text-align: center;
+    margin: 0 10px;
+}
+
+.header-paging > button {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 37px;
+    color: #799dec;
+    text-shadow: 0px 4px 2px rgba(0, 0, 0, 0.32), 0px 1px 0px #6182ca, 0px 2px 0px #4f6aa7, 0px 3px 0px #5470ad;
+    margin-right: 5px;
+}
+
+.header-paging > button:last-child {
+    margin-right: 0;
+}
+
+.student-card {
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    border-radius: 5px;
+    padding: 5px 10px;
+    max-width: 320px;
+    margin: 5px 10px;
+    width: 100%;
+}

@@ -1,0 +1,51 @@
+<div class="header">
+  <div class="header-filters">
+    <form (ngSubmit)="search(searchForm.value)" #searchForm="ngForm">
+      <div class="field">
+        <label for="searchName"> Name </label>
+        <input ngModel id="searchName" name="searchName" type="text" required>
+      </div>
+      <div class="field">
+        <!--
+        <ng-container *ngFor="let therapy of therapiesCtrl.controls; let i=index">
+          <input id="chk{{therapies[i]}}" type="checkbox" [value]="therapies[i]" [formControl]="therapy"/>
+          <label for="chk{{therapies[i]}}"> {{ therapies[i] }} </label>
+        </ng-container>
+        -->
+      </div>
+      <button type="submit" [disabled]="searchForm.invalid" > Search </button>
+    </form>
+  </div>
+  <div class="header-paging">
+    <button type="button" (click)="changePage(idx)" *ngFor="let page of pages; let idx = index"> 
+      {{ idx + 1 }} 
+    </button>
+  </div>
+  <div class="header-actions">
+      <button type="button" (click)="onCreate()"> New Student </button>
+  </div>
+</div>
+<div class="dataview">
+  <div *ngFor="let student of dataView" class="student-card">
+    <strong>{{ student.name }}</strong>
+    <div class="student-therapies">
+      Therapies:
+      <ng-container *ngIf="student.therapies.length > 0; else noTherapies"> 
+        <ul>
+          <li *ngFor="let therapy of student.therapies; let last = last">
+            {{ therapy }}
+          </li>
+        </ul>
+      </ng-container>
+      <ng-template #noTherapies> None </ng-template>
+    </div>
+    <div class="student-actions">
+      <button type="button" (click)="onEdit(student)">
+        Edit
+      </button>
+      <button type="button" (click)="onDelete(student)">
+        Delete
+      </button>
+    </div>
+  </div>
+</div>

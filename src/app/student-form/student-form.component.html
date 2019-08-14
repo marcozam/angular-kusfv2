@@ -1,0 +1,14 @@
+<form (ngSubmit)="save()" [formGroup]="form">
+  <div class="field">
+    <label for="name"> Name </label>
+    <input id="name" name="name" type="text" formControlName="name">
+  </div>
+  <div class="field">
+    <ng-container *ngFor="let therapy of therapiesCtrl.controls; let i=index">
+      <input id="chk{{therapies[i]}}" type="checkbox" [value]="therapies[i]" [formControl]="therapy"/>
+      <label for="chk{{therapies[i]}}"> {{ therapies[i] }} </label>
+    </ng-container>
+  </div>
+  <button type="submit"> {{ saveLabel }} </button>
+  <button type="button" (click)="cancel()"> Cancel </button>
+</form>
